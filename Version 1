@@ -1,1 +1,107 @@
+#This is Version 1 of my simple shopping cart system
 
+#Declaring the constants
+total_price = 0
+price_of_tomatoes = 0
+price_of_bananas = 0
+price_of_apples = 0
+
+#Creating a while loop so that invalid answers are caught.
+while True:
+    
+    #Asking the user if they want to use the program
+    start = input('Would you like to use this program: ')
+
+    #If the user does not want to use the program
+    if start.lower() == 'no':
+        print('Thank you. Please come again.')
+        break
+
+    #If the user does want to use the program
+    elif start.lower() == 'yes':
+        print('Thank you for choosing us.')
+        print('')
+
+        #Creating a while loop so that invalid answers are caught
+        while True:
+
+            #Listing the prices
+            print('What would you like to buy?')
+            print('Tomato for $3.90')
+            print('Apple for $2.40')
+            print('Banana for $3.00')
+            print("If you are done shopping with us, enter 'I'm done' to finalize your transaction.")
+            
+            #This is where the user enters what they want to buy
+            purchase = input('')
+
+            #If the user wants to buy tomatoes
+            if purchase.lower() == 'tomato':
+                #Asking the user how many tomatoes they want to buy.
+                while True:
+                    try:
+                        amount_of_tomatoes = int(input('How many tomatoes do you want to buy: '))
+                    except ValueError:
+                        print('Please only enter numbers.')
+                        continue
+                    break
+                #Calculating the price of the tomatoes
+                price_of_tomatoes = amount_of_tomatoes*3.9
+                #Telling the user the price of the tomatoes
+                print(f'The price of your tomatoes is ${price_of_tomatoes}')
+
+            #If the user wants to buy apples
+            elif purchase.lower() == 'apple':
+                #Asking the user how many apples they want to buy.
+                while True:
+                    try:
+                        amount_of_apples = int(input('How many apples do you want to buy: '))
+                    except ValueError:
+                        print('Please only enter numbers.')
+                        continue
+                    break
+                #Calculating the price of the apples
+                price_of_apples = amount_of_apples*2.4
+                #Telling the user the price of the apples
+                print(f'The price of your apples is ${price_of_apples}')
+
+            #If the user wants to buy bananas
+            elif purchase.lower() == 'banana':
+                #Asking the user how many bananas they want to buy.
+                while True:
+                    try:
+                        amount_of_bananas = int(input('How many bananas do you want to buy: '))
+                    except ValueError:
+                        print('Please only enter numbers.')
+                        continue
+                    break
+                #Calculating the price of the bananas
+                price_of_bananas = amount_of_bananas*3
+                #Telling the user the price of the bananas
+                print(f'The price of your bananas is ${price_of_bananas}')
+
+            #If the user is finished shopping:
+            elif purchase.lower() == "i'm done":
+                #Calculating the total price
+                total_price = price_of_apples+price_of_bananas+price_of_tomatoes
+                #Telling the user the total price
+                print('----------TOTAL PRICE----------')
+                print(f'Price of apples: ${price_of_apples}')
+                print(f'Price of bananas: ${price_of_bananas}')
+                print(f'Price of tomatoes: ${price_of_tomatoes}')
+                print(f'Total price: ${total_price}')
+                print('THANK YOU FOR SHOPPING WITH US!')
+                break
+        
+
+            #If the user enters anything else
+            else:
+                print("This is an invalid answer. Please enter either tomato, banana, apple, or I'm done to finalize your transaction.")
+
+        break
+
+                
+
+    #If the user enters anything else        
+    else:
+        print('This is not a valid answer. Please answer only with Yes or No.')
